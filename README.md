@@ -1,5 +1,6 @@
-# Pet List
+# Pet List with Node JS and MongoDB
 
-- In this lab we will be practicing data associations by creating owners and associating them with pets.
-- Your job is to set up an application that allows users to create owners and then create pets that are associated with those owners.
-- You will have to think about how to represent these associations via your application's routing.
+- In this lab we will be practicing querying with MongoDB with the Node JS driver.
+- You should first start by cloning this repository and issuing the `npm install` command to install all dependencies.
+- Your job will be to dive into /resources and write the appropriate code as per the comments in each of the controller files.
+- You can reference the Node JS MongoDB driver documentation here: http://mongodb.github.io/node-mongodb-native/2.2/api
