@@ -6,10 +6,11 @@ const mongoUrl = "mongodb://localhost:27017/pet_list_db";
 module.exports = (req, res) => {
   const ownerId = new ObjectId(req.query.owner_id);
 
-  // Find the owner via its ID above
-  // Call the method below passing in the owner object when the query is complete:
-
-  // res.render("add_pet", {
-  //   owner: ownerObject
-  // });
+  MongoClient.connect(mongoUrl, (err, db) => {
+    db.collection("owners").findOne({_id: ownerId}, (err, owner) => {
+      res.render("add_pet", {
+        owner: owner
+      });
+    });
+  });
 }
