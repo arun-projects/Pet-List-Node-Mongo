@@ -40,69 +40,73 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-        <% owners.forEach((owner) => { %>
-          <div class="container well small-container margin-top-20">
-              <div class="row">
-                  <div class="col-sm-8">
-                      <div class="md-font">
-                          <%= owner.firstName %> <%= owner.lastName %>
-                      </div>
-                      <div>
-                          <%= owner.email %>
-                      </div>
-                      <div>
-                          <%= owner.phoneNumber %>
-                      </div>
-                  </div>
-                  <div class="col-sm-4 txt-right">
-                      <a href="/owners/<%= owner._id %>/edit">
-                          <i class="fa fa-pencil margin-right-5"></i>
-                          Edit Owner
-                      </a>
-                  </div>
-              </div>
-
-              <% owner.pets.forEach((pet) => { %>
-                <div class="row margin-top-20">
-                    <div class="col-sm-3">
-                        <img src="<%= pet.photo %>" class="img-responsive" />
-                    </div>
-                    <div class="col-sm-6">
-                        <div>
-                            <strong><%= pet.petName %></strong>
-                        </div>
-                        <div class="margin-top-10">
-                            Age: <%= pet.age %>
+        <% if (owners) { %>
+          <% owners.forEach((owner) => { %>
+            <div class="container well small-container margin-top-20">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="md-font">
+                            <%= owner.firstName %> <%= owner.lastName %>
                         </div>
                         <div>
-                            Breed: <%= pet.breed %>
+                            <%= owner.email %>
+                        </div>
+                        <div>
+                            <%= owner.phoneNumber %>
                         </div>
                     </div>
-                    <div class="col-sm-3 txt-right">
-                        <a href="/pets/<%= pet._id %>/edit" class="btn btn-info margin-left-5">
-                            <i class="fa fa-pencil"></i>
+                    <div class="col-sm-4 txt-right">
+                        <a href="/owners/<%= owner._id %>/edit">
+                            <i class="fa fa-pencil margin-right-5"></i>
+                            Edit Owner
                         </a>
-                        <button class="btn btn-danger margin-left-5 remove-pet-button" data-pet-id="<%= pet._id %>">
+                    </div>
+                </div>
+
+                <% if (owner.pets) { %>
+                  <% owner.pets.forEach((pet) => { %>
+                    <div class="row margin-top-20">
+                        <div class="col-sm-3">
+                            <img src="<%= pet.photo %>" class="img-responsive" />
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <strong><%= pet.petName %></strong>
+                            </div>
+                            <div class="margin-top-10">
+                                Age: <%= pet.age %>
+                            </div>
+                            <div>
+                                Breed: <%= pet.breed %>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 txt-right">
+                            <a href="/pets/<%= pet._id %>/edit" class="btn btn-info margin-left-5">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <button class="btn btn-danger margin-left-5 remove-pet-button" data-pet-id="<%= pet._id %>">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </div>
+                    </div>
+                  <% }); %>
+                <% } %>
+
+                <div class="row margin-top-20">
+                    <div class="col-sm-12">
+                        <a href="/pets/new?owner_id=<%= owner._id %>" class="btn btn-success">
+                            <i class="fa fa-plus"></i>
+                            Add Pet
+                        </a>
+                        <button class="btn btn-danger margin-left-5 remove-owner-button" data-owner-id="<%= owner._id %>">
                             <i class="fa fa-remove"></i>
+                            Remove Owner
                         </button>
                     </div>
                 </div>
-              <% }); %>
-
-              <div class="row margin-top-20">
-                  <div class="col-sm-12">
-                      <a href="/pets/new?owner_id=<%= owner._id %>" class="btn btn-success">
-                          <i class="fa fa-plus"></i>
-                          Add Pet
-                      </a>
-                      <button class="btn btn-danger margin-left-5 remove-owner-button" data-owner-id="<%= owner._id %>">
-                          <i class="fa fa-remove"></i>
-                          Remove Owner
-                      </button>
-                  </div>
-              </div>
-          </div>
-        <% }); %>
+            </div>
+          <% }); %>
+        <% } %>
 
     </body>
 </html>
