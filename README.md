@@ -9,13 +9,12 @@
 #### Recommended Order
 
 1. owners/index.js
-2. owners/new.js
-3. owners/create.js
-4. owners/edit.js
-5. owners/update.js
-6. owners/destroy.js
-7. pets/new.js
-8. pets/create.js
-9. pets/edit.js
-10. pets/update.js
-11. pets/destroy.js
+2. owners/create.js
+3. owners/edit.js
+4. owners/update.js
+5. owners/destroy.js
+6. pets/new.js
+7. pets/create.js
+8. pets/edit.js
+9. pets/update.js
+10. pets/destroy.js
