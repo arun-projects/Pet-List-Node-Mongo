@@ -38,7 +38,7 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-        <h2 class="txt-center">Editing Arun</h2>
+        <h2 class="txt-center">Editing <%= owner.firstName %> <%= owner.lastName %></h2>
 
         <div class="container well small-container margin-top-20">
             <form method="POST" action="/owners/<%= owner._id %>?_method=put">
